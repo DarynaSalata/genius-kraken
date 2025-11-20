@@ -36,6 +36,12 @@ font-face {
 }
 
 /*Base*/
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 body {
   color: var(--color-primary-dark);
   background-color: var(--color-primary-light);
@@ -56,7 +62,12 @@ p {
   margin-top: 0;
 }
 
+a {
+  display: inline-block;
+}
+
 address {
+  font-style: normal;
 }
 
 ul {
@@ -220,6 +231,12 @@ ul {
 }
 
 /* Chefs section */
+.chefs-list {
+  display: flex;
+  gap: 40px 30px;
+  flex-wrap: wrap;
+}
+
 .chef-title {
   margin-bottom: 16px;
   font-size: 40px;
@@ -231,6 +248,14 @@ ul {
   margin: 0 auto 80px;
 }
 
+.chef-text p {
+  margin-bottom: 24px;
+}
+
+.chef-text p:last-child {
+  margin-bottom: 0;
+}
+
 .chefs-title::before,
 .chefs-title::after {
   display: block;
@@ -240,13 +265,28 @@ ul {
   content: '';
 }
 
+.chefs-item {
+  flex-basis: calc((100% - 30px) / 2);
+}
+
+.chef-card {
+  display: flex;
+  gap: 30px;
+}
+
 .chef-photo {
   border-radius: 4px 4px 4px 200px;
-  box-shadow: -16px 16px 0px 0px var(--color-primary-light),
+  box-shadow: -16px 16px 0 0 var(--color-primary-light),
     -16px 16px 0px 2px var(--color-secondary-dark);
 }
 
 /* Formats section */
+.formats-container {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
 .formats-list {
   display: flex;
   gap: 20px;
@@ -267,7 +307,7 @@ ul {
 }
 
 .formats-item {
-  flex-basis: calc((100%-40px) / 3);
+  flex-basis: calc((100% - 40px) / 3);
 }
 
 .format-title {
@@ -290,6 +330,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   width: 44px;
   height: 44px;
   background-color: transparent;
@@ -305,18 +346,56 @@ ul {
 }
 
 /* Contact section */
+.contact-section {
+  padding-bottom: 96px;
+}
+
+.contact-container {
+  display: flex;
+  gap: 32px;
+}
+
 .contact-title {
   margin-bottom: 16px;
 }
 
-.map-style {
-  width: 100%;
-  max-width: 603px;
-  height: 100%;
-  max-height: 595px;
+.contact-map {
+  flex-shrink: 0;
+  border: none;
+  border-radius: 16px;
 }
 
 /* footer */
+.footer {
+  padding: 32px 0px;
+}
+
+.footer-container {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-address {
+  display: flex;
+  flex-basis: 50%;
+}
+
+.footer-nav {
+  display: flex;
+  flex-basis: 50%;
+  gap: 20px;
+}
+
+.footer-logo,
+.footer-menu {
+  flex-grow: 1;
+}
+
+.address-list,
+.address-info {
+  flex-grow: 1;
+}
+
 .address-link {
   color: var(--color-primary-light);
   font-size: 16px;
